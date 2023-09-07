@@ -6,7 +6,7 @@ import Welcomepage from './Components/Welcomepage';
 import adminLandingPage from './Components/adminLandingPage';
 import topbar from './Components/topbar';
 import addDoctor from './Components/addDoctor';
-import userLandingPage from './Components/adminLandingPage';
+import userLandingPage from './Components/userLandingPage';
 
 
 import './App.css';
