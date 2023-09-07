@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { Link } from 'react-router-dom';
-import './adminLandingPage.css';
+import './userLandingPage.css';
 import './topbar'
 import addDoctor from './addDoctor';
 import mentalHealthIcon from "../assets/images/mentalHealthIcon.png"
 import uIcon from "../assets/images/uIcon.png"
-import addDocIcon from "../assets/images/addDoctor.PNG"
+import contactDoc from "../assets/images/contactDoc.png"
+import depressionIcon from "../assets/images/depression icon.png"
+import helpIcon from "../assets/images/help.png"
+import checkAppointment from "../assets/images/viewApp.png"
 
 
-function adminLandingPage() {
+function userLandingPage() {
 
     function handleClick() {
-        window.location.href = '/addDoctor';
+        //window.location.href = '/addDoctor';
       }
     
 
@@ -52,50 +55,34 @@ function adminLandingPage() {
             </div>
 
             <div class="grid-item">
-            <img class="addDocIcon" src={addDocIcon} />
+            <img class="addDocIcon" src={contactDoc} />
                 <div class="heading" onClick={handleClick}>
-                    <p id="mouse-pinter">Add New Doctor</p>
-                <p class="descriptions">This is where a user is able to add a new doctor into the system</p>
+                    <p id="mouse-pinter">Contact a Doctor</p>
+                <p class="descriptions">This is where a user is able to contact a doctor.</p>
                 </div>
             </div>
 
             <div class="grid-item-not-ready">
-                <img class="addDocIcon" src={addDocIcon}/>
+                <img class="addDocIcon" src={depressionIcon}/>
                 <div class="heading">
-                    <p id="mouse-pinter">View Client</p>
-                <p class="descriptions">This is where a user is able to add a new doctor into the system</p>
+                    <p id="mouse-pinter">Depression</p>
+                <p class="descriptions">This is where a user is contact doctors that specialise with depression</p>
                 </div>
             </div>
 
             <div class="grid-item-not-ready">
-                <img class="addDocIcon" src={addDocIcon}/>
+                <img class="addDocIcon" src={helpIcon}/>
                 <div class="heading">
-                    <p id="mouse-pinter">Scheduling</p>
-                <p class="descriptions">This is where a user is able to add a new doctor into the system</p>
+                    <p id="mouse-pinter">Help</p>
+                <p class="descriptions">This is where a user can urgently seek help from available doctors</p>
                 </div>
             </div>
 
             <div class="grid-item-not-ready">
-                <img class="addDocIcon" src={addDocIcon}/>
+                <img class="addDocIcon" src={checkAppointment}/>
                 <div class="heading">
-                    <p id="mouse-pinter">Chat With Doctors</p>
-                <p class="descriptions">This is where a user is able to add a new doctor into the system</p>
-                </div>
-            </div>
-
-            <div class="grid-item-not-ready">
-                <img class="addDocIcon" src={addDocIcon}/>
-                <div class="heading">
-                    <p id="mouse-pinter">Chat With Clients</p>
-                <p class="descriptions">This is where a user is able to add a new doctor into the system</p>
-                </div>
-            </div>
-
-            <div class="grid-item-not-ready">
-                <img class="addDocIcon" src={addDocIcon}/>
-                <div class="heading">
-                    <p id="mouse-pinter">Post Notices</p>
-                <p class="descriptions">This is where a user is able to add a new doctor into the system</p>
+                    <p id="mouse-pinter">Appointments</p>
+                <p class="descriptions">This is where a user can view his/her appointments</p>
                 </div>
             </div>
         
@@ -105,4 +92,4 @@ function adminLandingPage() {
         </body>
     );
 }
-export default adminLandingPage
+export default userLandingPage

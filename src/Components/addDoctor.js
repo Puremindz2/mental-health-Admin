@@ -14,7 +14,7 @@ function addDoctor() {
         <body>
         <div class="topbar-container">
             <div class="topbar-left">
-                <img class="appIcon" src="../assets/images/mentalHealthIcon.png"/>
+                <img class="appIcon"/>
                     <span class="app-name">Pure Minds - Mental Health</span>
             </div>
 
