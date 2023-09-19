@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import './adminLandingPage.css';
 import './topbar'
 import addDoctor from './addDoctor';
-import mentalHealthIcon from "../assets/images/mentalHealthIcon.png"
-import uIcon from "../assets/images/uIcon.png"
-import addDocIcon from "../assets/images/addDoctor.PNG"
+import mentalHealthIcon from "../../assets/images/mentalHealthIcon.png"
+import uIcon from "../../assets/images/uIcon.png"
+import addDocIcon from "../../assets/images/addDoctor.PNG"
 
 
 function adminLandingPage() {
