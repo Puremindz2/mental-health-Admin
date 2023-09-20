@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+//import { supabase } from '../supabaseClient';
 import { useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,20 +27,24 @@ const Login = () => {
     event.preventDefault();
     if(email.includes('-admin')){window.location.href = '/adminLandingPage'}
     try {
-      const { user, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      //const { user, error } = await supabase.auth.signInWithPassword
+      //({
+      //  email,
+      //  password,
+      //});
 
-      if (error) {
-        console.error('Login error:', error);
-        toast.error('Invalid email or password. Please try again.');
-      } else {
-        console.log('Logged in user:', user);
-        toast.success('Login successful!');
-        // Redirect to the home page after successful login
+      //if (error) {
+      //  console.error('Login error:', error);
+      //  toast.error('Invalid email or password. Please try again.');
+      //} else {
+      //  console.log('Logged in user:', user);
+      //  toast.success('Login successful!');
+      //  // Redirect to the home page after successful login
+      //  history.push('/home');
+      //}
+      toast.success('Login successful!');
+      //  // Redirect to the home page after successful login
         history.push('/home');
-      }
     } catch (error) {
       console.error('Error connecting to Supabase:', error);
       toast.error('Oops! Something went wrong. Please try again.');

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../../supabaseClient';
+//import { supabase } from '../../supabaseClient';
 
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true);
@@ -23,23 +23,23 @@ export default function Account({ session }) {
 
       const { user } = session;
 
-      let { data, error } = await supabase
-        .from('profiles')
-        .select(`firstName, lastName, age ,gender , dob, avatar_url`)
-        .single();
-
-      if (error) {
-        console.warn(error);
-      } else if (data) {
-        setUserEmail(data.userEmail)
-        setFirstName(data.firstName);
-        setLastName(data.lastName);
-        setAge(data.age);
-        setDob(data.dob);
-        setGender(data.gender);
-        setAvatarUrl(data.avatar_url);
-      }
-
+      //let { data, error } = await supabase
+      //  .from('profiles')
+      //  .select(`firstName, lastName, age ,gender , dob, avatar_url`)
+      //  .single();
+//
+      //if (error) {
+      //  console.warn(error);
+      //} else if (data) {
+      //  setUserEmail(data.userEmail)
+      //  setFirstName(data.firstName);
+      //  setLastName(data.lastName);
+      //  setAge(data.age);
+      //  setDob(data.dob);
+      //  setGender(data.gender);
+      //  setAvatarUrl(data.avatar_url);
+      //}
+//
       setLoading(false);
     }
 
@@ -69,14 +69,14 @@ export default function Account({ session }) {
       updated_at: new Date(),
     };
 
-    let { error } = await supabase.from('profiles').upsert(updates);
-
-    if (error) {
-      alert(error.message);
-    } else {
-      setAvatarUrl(avatarUrl);
-    }
-    setLoading(false);
+    //let { error } = await supabase.from('profiles').upsert(updates);
+//
+    //if (error) {
+    //  alert(error.message);
+    //} else {
+    //  setAvatarUrl(avatarUrl);
+    //}
+    //setLoading(false);
   }
 
   return (
@@ -146,7 +146,7 @@ export default function Account({ session }) {
       </div>
 
       <div>
-        <button className="button block" type="button" onClick={() => supabase.auth.signOut()}>
+        <button className="button block" type="button">
           Sign Out
         </button>
       </div>

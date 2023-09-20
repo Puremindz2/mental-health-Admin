@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { supabase } from "../supabaseClient";
+//import { supabase } from "../supabaseClient";
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
@@ -17,26 +17,26 @@ class ForgotPassword extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Request a password reset email from Supabase
-      const { data, error } = await supabase.auth.resetPasswordForEmail(
-        this.state.email
-      );
-
-      if (error) {
-        throw error;
-      }
-
-      this.setState({
-        message: 'Password reset email sent successfully!',
-        error: null,
-      });
-    } catch (error) {
-      this.setState({
-        message: '',
-        error: 'An error occurred. Please try again later.',
-      });
-    }
+ //   try {
+ //     // Request a password reset email from Supabase
+ //     const { data, error } = await supabase.auth.resetPasswordForEmail(
+ //       this.state.email
+ //     );
+//
+ //     if (error) {
+ //       throw error;
+ //     }
+//
+ //     this.setState({
+ //       message: 'Password reset email sent successfully!',
+ //       error: null,
+ //     });
+ //   } catch (error) {
+ //     this.setState({
+ //       message: '',
+ //       error: 'An error occurred. Please try again later.',
+ //     });
+ //   }
   };
 
   render() {

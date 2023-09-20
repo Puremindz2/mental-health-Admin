@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+//import { createClient } from "@supabase/supabase-js";
 import { useHistory } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
-import { supabase } from "../supabaseClient";
+//import { supabase } from "../supabaseClient";
 
 function Signup() {
   const history = useHistory();
@@ -62,47 +62,48 @@ function Signup() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      const { session } = await supabase.auth.signUp({
-        email: userEmail,
-        password: userPassword,
-      });
+    //try {
+      //const { session } = await supabase.auth.signUp({
+      //  email: userEmail,
+      //  password: userPassword,
+      //});
+//
+      //const { data } = await supabase.auth.getUser();
+      //const { error } = await supabase.from("users").insert({
+      //  
+      //  user_id: data.user?.id,
+      //  firstName: firstName,
+      //  lastName: lastName,
+      //  gender: gender,
+      //  age:age,
+      //  dob: dob,
+      //})
+//
+      //if (error) {
+      //  console.log(error);
+      //} else {
+      //  const user_id = data.user.id;
+      //}
+      //if (userPassword !== confirmPassword) {
+      //  toast.error('Passwords do not match. Please re-enter your password.');
+      //  return;
+      //} 
+//
+      //if (event) {
+      //  console.event("Error inserting data:", event);
+      //  toast.event("Account creation failed. Please try again.");
+      //} else if (error ){
+      //  console.log("Data inserted successfully:", session);
+      //  toast.success("Account created successfully!");
+      //  // Redirect to the login page after successful account creation
+      //  history.push("/login");
+      //}
+    //} catch (event) {
+    //  console.event("Error connecting to Supabase:", event);
+    //  toast.event("Oops! Something went wrong. Please try again.");
+    //}
+  }
 
-      const { data } = await supabase.auth.getUser();
-      const { error } = await supabase.from("users").insert({
-        
-        user_id: data.user?.id,
-        firstName: firstName,
-        lastName: lastName,
-        gender: gender,
-        age:age,
-        dob: dob,
-      })
-
-      if (error) {
-        console.log(error);
-      } else {
-        const user_id = data.user.id;
-      }
-      if (userPassword !== confirmPassword) {
-        toast.error('Passwords do not match. Please re-enter your password.');
-        return;
-      } 
-
-      if (event) {
-        console.event("Error inserting data:", event);
-        toast.event("Account creation failed. Please try again.");
-      } else if (error ){
-        console.log("Data inserted successfully:", session);
-        toast.success("Account created successfully!");
-        // Redirect to the login page after successful account creation
-        history.push("/login");
-      }
-    } catch (event) {
-      console.event("Error connecting to Supabase:", event);
-      toast.event("Oops! Something went wrong. Please try again.");
-    }
-  };
   return (
     <div className="signup-container">
       <ToastContainer />
