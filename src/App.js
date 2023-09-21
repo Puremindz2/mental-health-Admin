@@ -16,6 +16,7 @@ import Home  from './Components/User/Home';
 import Profile from './Components/User/Profile';
 import Settings from './Components/User/Settings';
 import ChatApp from './Components/User/Chat/ChatApp';
+import Depression from './Components/User/Resources/Depression';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/settings" component={Settings}/>
           <Route exact path="/chatapp" component={ChatApp}/>
+          <Route exact path="/depression" component={Depression}/>;
         </Switch>
       </Router>
     </div>
