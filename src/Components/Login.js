@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
-import { useHistory } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 
 const Login = () => {
-  const history = useHistory();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
@@ -23,39 +17,18 @@ const Login = () => {
     };
   }, []);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    if(email.includes('-admin')){window.location.href = '/adminLandingPage'}
-    try {
-      const { user, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) {
-        console.error('Login error:', error);
-        toast.error('Invalid email or password. Please try again.');
-      } else {
-        console.log('Logged in user:', user);
-        toast.success('Login successful!');
-        // Redirect to the home page after successful login
-        history.push('/home');
-      }
-    } catch (error) {
-      console.error('Error connecting to Supabase:', error);
-      toast.error('Oops! Something went wrong. Please try again.');
-    }
+    console.log('Email: ', email);
+    console.log('Password: ', password);
   };
 
   const formStyles = {
-    background: `linear-gradient(to bottom, ${colors[currentColorIndex]} 0%, ${
-      colors[(currentColorIndex + 1) % colors.length]
-    } 100%)`,
+    background: `linear-gradient(to bottom, ${colors[currentColorIndex]} 0%, ${colors[(currentColorIndex + 1) % colors.length]} 100%)`,
   };
 
   return (
     <div className="login">
-      <ToastContainer />
       <form onSubmit={handleSubmit} className="login-form" style={formStyles}>
         <h2>Login</h2>
         <label>Email:</label>
@@ -69,3 +42,6 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
