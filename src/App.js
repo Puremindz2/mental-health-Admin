@@ -6,8 +6,8 @@ import Welcomepage from './Components/Welcomepage';
 import adminLandingPage from './Components/adminLandingPage';
 import topbar from './Components/topbar';
 import addDoctor from './Components/addDoctor';
-import userLandingPage from './Components/userLandingPage';
-
+import ManageAppointments from './Components/ViewAppointment'
+import viewPatients from './Components/ViewPatients'
 
 import './App.css';
 
@@ -22,7 +22,8 @@ function App() {
           <Route exact path="/topbar" component={topbar} />
           <Route exact path="/adminLandingPage" component={adminLandingPage} />
           <Route exact path="/addDoctor" component={addDoctor} />
-          <Route exact path="/userLandingPage" component={userLandingPage} />
+          <Route exact path="/ManageAppointments" component={ManageAppointments} />
+          <Route exact path="/viewPatients" component={viewPatients} />
         </Switch>
       </Router>
     </div>

@@ -22,6 +22,7 @@ const WelcomePage = () => {
   }, []);
 
   return (
+    <div className='welcome-body'>
     <div className="welcome-container">
       <div className="content-container">
         <div className={`welcome-content ${showTitle ? 'appear' : 'disappear'}`}>
@@ -36,6 +37,7 @@ const WelcomePage = () => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };
