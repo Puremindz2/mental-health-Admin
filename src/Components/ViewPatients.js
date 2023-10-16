@@ -7,7 +7,7 @@ const AppointmentsPage = () => {
   const [patients, setPatients] = useState([]);
 
   function handleClick() {
-    window.location.href = '/home';
+    window.location.href = '/adminLandingPage';
   }
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,7 +69,7 @@ const AppointmentsPage = () => {
       </div>
 
       <div style={{position:'absolute', marginLeft:'45%', overflow: 'hidden'}}>
-        <h1> <span> My Appointments</span></h1>
+        <h1> <span> Patients </span></h1>
       </div>
 
       <div class="topbar-right-home">

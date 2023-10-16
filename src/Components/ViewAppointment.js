@@ -9,6 +9,10 @@ const AppointmentsPage = () => {
   const [app_status, setStatus] = useState('');
   const [comment, setComment] = useState('');
   const [app_id, setId] = useState('');
+  const [app_date, setDate] = useState([]);
+  const [app_reason, setReason] = useState([]);
+  const [app_name, setName] = useState([]);
+
   const supabaseClient = new SupabaseClient('https://heluyldjbfyghwatcrpe.supabase.co', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhlbHV5bGRqYmZ5Z2h3YXRjcnBlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYwMDQ0MDQsImV4cCI6MjAxMTU4MDQwNH0.hd4SzvPBf9U5_y4hdiNvHRubtv9Y04ddRBvLx5m6MF4");
 
   const myRef = useRef()
@@ -59,6 +63,82 @@ const AppointmentsPage = () => {
     fetchAppointments();
   }, []);
 
+  const filterByDate = async (event) => {
+        event.preventDefault();
+    
+        const { data, error } = await supabaseClient
+    .from('appointments')
+        .select('*')
+        .eq('date', app_date)
+        if (error) {
+          console.error(error);
+          return;
+        }
+    
+        setAppointments(data)
+        // Clear the form fields
+    //window.location.reload();
+      };
+
+    const filterByReason = async (event) => {
+          event.preventDefault();
+      
+          const { data, error } = await supabaseClient
+      .from('appointments')
+        .select('*')
+        .eq('reason', app_reason)
+          if (error) {
+            console.error(error);
+            return;
+          }
+      
+          setAppointments(data)
+          // Clear the form fields
+      //window.location.reload();
+        };
+
+      const filterByName = async (event) => {
+            event.preventDefault();
+        
+            const { data, error } = await supabaseClient
+        .from('appointments')
+          .select('*')
+          .like('name', app_name)
+            if (error) {
+              console.error(error);
+              return;
+            }
+        
+            setAppointments(data)
+            // Clear the form fields
+        //window.location.reload();
+          };
+
+        const filterByAnswer = async (event) => {
+              event.preventDefault();
+          
+              const { data, error } = await supabaseClient
+          .from('appointments')
+            .select('*')
+            .neq('name', app_name)
+              if (error) {
+                console.error(error);
+                return;
+              }
+          
+              setAppointments(data)
+              // Clear the form fields
+          //window.location.reload();
+            };
+
+        function clearFiler(){
+          setDate = '';
+          setName = '';
+          setReason = '';
+          window.location.reload()
+        }
+  
+
   function showref1(){
     displayRef = !displayRef
     if(displayRef) {
@@ -96,14 +176,27 @@ const AppointmentsPage = () => {
     </div>
 
     </div>
-
+<br></br><br></br>
   <form className="vaform">
+  
   <table className="viewApp" style={{border : tbBorder}}>
-    
+    <tr>
+      <td><h3>Filters</h3></td>
+      <td><label>Date</label> <input type='date' value={app_date} onChange={(e) => setDate(e.target.value)}></input> <button  onClick={filterByDate}>Search</button></td>
+      <td><label>Reason</label> <input type='text' value={app_reason} onChange={(e) => setReason(e.target.value)}></input> <button  onClick={filterByReason}>Search</button></td>
+      <td> <label>Name</label> <input type='text' value={app_name} onChange={(e) => setName(e.target.value)}></input> <button  onClick={filterByName}>Search</button></td>
+      <td><button  onClick={filterByReason}>See Replied Appointments</button></td>
+      <td><button  onClick={clearFiler}>Clear Filter</button></td>
+    </tr>
+  
+      <br></br>
+      
+     
+
     <tr>
       <td className="tblHeadingsID" style={{border : tbBorder, width: idWidth}}>ID</td>
       <td className="tblHeadings" style={{border : tbBorder, width: otherWidth}}>PATEINT</td>
-      <td className="tblHeadings" style={{border : tbBorder, width: otherWidth}}>TOPIC</td>
+      <td className="tblHeadings" style={{border : tbBorder, width: otherWidth}}>REASON</td>
       <td className="tblHeadings" style={{border : tbBorder, width: otherWidth}}>PATEINT COMMENT</td>
       <td className="tblHeadings" style={{border : tbBorder, width: otherWidth}}>APPOINTMENT DATE</td>
       <td className="tblHeadings" style={{border : tbBorder, width: otherWidth}}>APPOINTMENT STATUS</td>
@@ -117,7 +210,7 @@ const AppointmentsPage = () => {
       <td style={{width: otherWidth}}>{doctor.reason}</td>
       <td style={{width: otherWidth}}>{doctor.brief}</td>
       <td style={{width: otherWidth}}>{doctor.date} {doctor.time}</td>
-      <td style={{width: otherWidth}}>{doctor.cancelled}</td>
+      <td style={{width: otherWidth}}>{doctor.appstatus}</td>
       <td> 
       <select onChange={(e) => setStatus(e.target.value ?? '')} name="gender" id="gender">
       <option disabled value="Please choose One">Please choose One:</option>
@@ -135,7 +228,7 @@ const AppointmentsPage = () => {
 
     </table>      
     </form>
-    
+    <br></br><br></br><br></br>
    </div>
  
  

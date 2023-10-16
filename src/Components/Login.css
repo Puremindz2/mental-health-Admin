@@ -1,24 +1,50 @@
-.login {
+.login{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85vh;
+  height: 100vh;
+  /*background-image: radial-gradient(circle, black, #0a1627);*/
+  background-image: url('../assets/images/bgGif7.gif');
+  /*filter: blur(5px);*/
+  background-size: cover;
+  background-position: center center; 
+  
 }
 
-.login-form {
-  animation: bounce 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-}
-
-@keyframes bounce {
+@keyframes gradientAnimation {
   0% {
-    transform: scale(0.8);
+    background-position: 50% 50%,50% 50%,50% 50% ;
+    background-size: 100% 100%, 100% 100%, 0% 0%,
   }
-  70% {
-    transform: scale(1.2);
-  }
+  50% {
+    background-position: 50% 50%,50% 50%,50% 50% ;
+    background-size: 100% 100%, 100% 100%, 100% 100%,
+    }
   100% {
-    transform: scale(1);
+    background-position: 50% 50%, 50% 50%, 50% 50%;
+    background-size: 0% 0%, 0% 100%, 100% 100%,
   }
+}
+
+@keyframes path-Animation {
+  0%{ 
+   transform: translateX(0) ;
+  }
+  100%{ 
+    transform: translateX(200px) ;
+  }
+  
+}
+
+.login-form{
+  text-indent: 20px;
+  background: white;
+  border: 3px solid #BF004A;
+  border-radius: 10px;
+  position: absolute;
+  width: 350px;
+  height: 500px;
+  margin-top: 30px;
 }
 
 .emoji {
@@ -49,50 +75,109 @@
   color: #ffffff;
 }
 
-  h2 {
-    margin-bottom: 30px;
-    font-size: 50px;
-    text-shadow: 0 0 3px #053163;
+.login-form h2 {
+    margin-bottom: 25px;
+    font-size: 40px;
+    text-shadow: 0 0 3px #1b0772;
   }
+ 
   
-  label {
+  .login-form p1{
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: underline;
+  position: relative;
+  left:1%;
+  top:-400%;
+  color: #000000;
+}
+.login-form  label {
     font-family: "Arial", sans-serif;
     font-weight: bold;
     font-size: 30px;
   }
   
-  input {
+  .login-form input {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
-    box-sizing: border-box;
+    width: 80%;
+    /*box-sizing: border-box;*/
   }
 
-  input:focus {
+  .login-form input:focus {
     outline: none;
-    border-color: rgb(255, 80, 246);
-    box-shadow: 0 0 5px rgba(204, 58, 197, 0.5);
+    border-color: rgb(236, 213, 235);
+    box-shadow: 0 0 5px rgba(207, 216, 224, 0.5);
   }
 
-  input:hover {
+  .login-form input:hover {
     border-color: blue;
   }
   
-  button {
-    background-color: #4CAF50;
+  .login-form button {
+    background-color: #ffa600;
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-shadow: 0 0 3px #22282e;
+    width: 86%;
+    margin-right: -100px;
   }
   
-  button:hover {
-    background-color: #23b828;
+   button:hover {
+    background-color: #7a406c;
+  }
+
+  .welcome-topbar-container{
+    position: absolute;font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 35px;
+        position: relative;
+        position: absolute; height: 70px;left: 0px;top: 0px;background: #FFFFFF;width: 100%;
+        border-style: none none solid none;
+        border-color:#BF004A;
+        background: #102036;
+        /*background:  #336db8;*/
+        color: white;
+        filter: blur(0px);
   }
   
+  .topbar-btns{
+   margin-left:5px;
+   margin-top: 10px;
+   color: #BE0028;
+   background-color: white;
+   text-shadow: none;
+   border: none;
+   border-radius: 10px;
+   height: 50px;
+  }
+  .appIcon{
+    width: 50px; height: 50px; margin-top: -15px;
+  }
+  
+  .app-name{
+    position: absolute;height: 20px;left: 37.14%;right: 26.07%;top: calc(50% - 20px/2);
+          font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: -0.588px;
+            cursor: pointer;
+            color: #FFFFFF;
+  }
+
+  .topbar-left img{
+    width: 50px; height: 50px; margin-top: 10px; margin-left: -200px;
+  }
